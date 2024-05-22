@@ -29,7 +29,7 @@ function funcs.sFLY(vfly)
 		BG.P = 30000
 		BG.Parent = T
 		BV.Parent = T
-		BG.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+		BG.maxTorque = Vector3.new(1000, 1000, 1000)
 		BG.cframe = T.CFrame
 		BV.velocity = Vector3.new(0, 0, 0)
 		BV.maxForce = Vector3.new(1000, 1000, 1000)
