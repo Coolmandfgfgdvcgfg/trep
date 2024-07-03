@@ -1,7 +1,6 @@
 FLYING = false
 QEfly = true
-iyflyspeed = 1
-vehicleflyspeed = 1
+getgenv().flyspeed = 1
 local Mouse = game.Players.LocalPlayer:GetMouse()
 local Players = game.Players
 
@@ -11,7 +10,7 @@ function getRoot(char)
 end
 local funcs = {}
 
-function funcs.sFLY(vfly)
+function funcs.sFLY()
 	repeat wait() until Players.LocalPlayer and Players.LocalPlayer.Character and getRoot(Players.LocalPlayer.Character) and Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
 	repeat wait() until Mouse
 	if flyKeyDown or flyKeyUp then flyKeyDown:Disconnect() flyKeyUp:Disconnect() end
@@ -33,7 +32,7 @@ function funcs.sFLY(vfly)
 		BG.CFrame = T.CFrame
 		BV.VectorVelocity = Vector3.new(0, 0, 0)
 		BV.Attachment0 = Players.LocalPlayer.Character.HumanoidRootPart.RootAttachment
-		
+
 		BV.MaxForce = 999999
 		task.spawn(function()
 			repeat wait()
@@ -61,17 +60,17 @@ function funcs.sFLY(vfly)
 	end
 	flyKeyDown = Mouse.KeyDown:Connect(function(KEY)
 		if KEY:lower() == 'w' then
-			CONTROL.F = (vfly and vehicleflyspeed or iyflyspeed)
+			CONTROL.F = ( getgenv().flyspeed )
 		elseif KEY:lower() == 's' then
-			CONTROL.B = - (vfly and vehicleflyspeed or iyflyspeed)
+			CONTROL.B = - (getgenv().flyspeed )
 		elseif KEY:lower() == 'a' then
-			CONTROL.L = - (vfly and vehicleflyspeed or iyflyspeed)
+			CONTROL.L = - ( getgenv().flyspeed )
 		elseif KEY:lower() == 'd' then 
-			CONTROL.R = (vfly and vehicleflyspeed or iyflyspeed)
+			CONTROL.R = ( getgenv().flyspeed )
 		elseif QEfly and KEY:lower() == 'e' then
-			CONTROL.Q = (vfly and vehicleflyspeed or iyflyspeed)*2
+			CONTROL.Q = ( getgenv().flyspeed )*2
 		elseif QEfly and KEY:lower() == 'q' then
-			CONTROL.E = -(vfly and vehicleflyspeed or iyflyspeed)*2
+			CONTROL.E = -( getgenv().flyspeed )*2
 		end
 		pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Track end)
 	end)
