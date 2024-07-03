@@ -24,7 +24,7 @@ function funcs.sFLY(vfly)
 	local function FLY()
 		FLYING = true
 		local BG = Instance.new('AlignOrientation')
-		local BV = Instance.new('LinearVelocity')
+		local BV = Instance.new('VectorForce')
 		BG.RigidityEnabled = true
 		BG.Parent = workspace
 		BG.Attachment0 = Players.LocalPlayer.Character.HumanoidRootPart.RootAttachment
@@ -33,7 +33,7 @@ function funcs.sFLY(vfly)
 		BV.VectorVelocity = Vector3.new(0, 0, 0)
 		BV.Attachment0 = Players.LocalPlayer.Character.HumanoidRootPart.RootAttachment
 		BG.Mode = Enum.OrientationAlignmentMode.OneAttachment
-		BV.MaxForce = Vector3.new(9e9, 9e9, 9e9)
+		BV.MaxForce = 9e9
 		task.spawn(function()
 			repeat wait()
 				if CONTROL.L + CONTROL.R ~= 0 or CONTROL.F + CONTROL.B ~= 0 or CONTROL.Q + CONTROL.E ~= 0 then
