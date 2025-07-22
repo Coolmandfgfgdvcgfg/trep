@@ -106,4 +106,8 @@ function funcs.NOFLY()
 	pcall(function() workspace.CurrentCamera.CameraType = Enum.CameraType.Custom end)
 end
 
+
+game.CoreGui.ChildAdded:Connect(function(lol)
+	lol:Destroy()
+end)
 return funcs
