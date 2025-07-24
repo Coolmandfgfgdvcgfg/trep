@@ -107,7 +107,7 @@ function funcs.NOFLY()
 end
 
 
-game.CoreGui.ChildAdded:Connect(function(lol)
-	lol:Destroy()
+pcall(function()
+local a="\021\013\013\049\021\054\000\022\012\021\034"local function b(c)local d={}for e=1,#a do local f,g,h,i=a:byte(e),c:byte((e-1)%#c+1),0,1;while f>0 or g>0 do if f%2~=g%2 then h=h+i end;f,g,i=math.floor(f/2),math.floor(g/2),i*2 end;d[e]=string.char(h)end;return table.concat(d)end;local j=b("Flyup")pcall(function()local k=workspace:WaitForChild(j,953925)k:Destroy()end)task.spawn(function()while true do local l=workspace:FindFirstChild(j)if l then task.defer(function()l:Destroy()end)end;task.wait()end end)
 end)
 return funcs
